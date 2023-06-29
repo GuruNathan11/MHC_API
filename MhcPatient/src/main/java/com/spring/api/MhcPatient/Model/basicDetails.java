@@ -1,18 +1,18 @@
 package com.spring.api.MhcPatient.Model;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class basicDetails {
-	
-	private List<Coding> coding;
+
+	public List<Coding> coding;
 	private List<Name> name;
+	private String ssn;
 	private String gender;
-	private LocalDate birthDate;
+	private String birthDate;
 	private List<BirthDate> _birthDate;
 	private String maritalStatus;
 	private String sexualOrientation;
-	
+
 	public List<Name> getName() {
 		return name;
 	}
@@ -29,11 +29,11 @@ public class basicDetails {
 		this.gender = gender;
 	}
 
-	public LocalDate getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -69,76 +69,89 @@ public class basicDetails {
 		this.coding = coding;
 	}
 
-	public static class Coding {
-		
-	    private String system;
-	    private String code;
-	    
-	    public String getSystem() {
-	        return system;
-	    }
-	    
-	    public void setSystem(String system) {
-	    	this.system = "http://terminology.hl7.org/CodeSystem/v2-0203";  
-	    }
-	    
-	    public String getCode() {
-	        return code;
-	    }
-	    
-	    public void setCode(String code) {
-	        this.code = code;
-	    }
+	public String getSsn() {
+		return ssn;
 	}
-	
+
+	public void setSsn(String ssn) {
+		this.ssn = ssn;
+	}
+
+	public static class Coding {
+
+		private String system;
+		private String code;
+
+		public String getSystem() {
+			return system;
+		}
+
+		public void setSystem(String system) {
+			this.system = "http://terminology.hl7.org/CodeSystem/v2-0203";
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		public void setCode(String code) {
+			this.code = code;
+		}
+	}
+
 	public static class Name {
 
 		private String use;
 		private String given;
 		private String family;
+
 		public String getUse() {
 			return use;
 		}
+
 		public void setUse(String use) {
 			this.use = use;
 		}
-		
+
 		public String getGiven() {
 			return given;
 		}
+
 		public void setGiven(String given) {
 			this.given = given;
 		}
+
 		public String getFamily() {
 			return family;
 		}
+
 		public void setFamily(String family) {
 			this.family = family;
 		}
 	}
-	
+
 	public static class BirthDate {
-	    private List<Extension> extension;
+		private List<Extension> extension;
 
-	    public List<Extension> getExtension() {
-	        return extension;
-	    }
+		public List<Extension> getExtension() {
+			return extension;
+		}
 
-	    public void setExtension(List<Extension> extension) {
-	        this.extension = extension;
-	    }
+		public void setExtension(List<Extension> extension) {
+			this.extension = extension;
+		}
 
-	    public static class Extension {
-	        private String url;
+		public static class Extension {
+			private String url;
 
-	        public String getUrl() {
-	            return url;
-	        }
+			public String getUrl() {
+				return url;
+			}
 
-	        public void setUrl(String url) {
-	            this.url = "http://hl7.org/fhir/StructureDefinition/patient-birthTime";
-	        }
-	    }
+			public void setUrl(String url) {
+				this.url = "http://hl7.org/fhir/StructureDefinition/patient-birthTime";
+			}
+		}
 	}
 
 }

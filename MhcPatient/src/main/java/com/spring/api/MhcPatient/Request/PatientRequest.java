@@ -14,7 +14,8 @@ import com.spring.api.MhcPatient.Model.resource;
 public class PatientRequest {
 
     private String id;
-    private Boolean active;
+//    private Boolean active;
+    private String active;
     private List<resource> resource;
     private List<basicDetails> basicDetails;
     private List<Contact> contact;
@@ -96,12 +97,12 @@ public class PatientRequest {
 		this.guardian = guardian;
 	}
 
-	public Boolean getActive() {
+	public String getActive() {
 		return active;
 	}
 
-	public void setActive(Boolean active) {
+	public void setActive(String active) {
 		this.active = active;
-	}
-
+	}	
+	
 }

@@ -12,7 +12,8 @@ import com.spring.api.MhcPatient.Request.PatientRequest;
 public class Patient {
 	@Id
 	private String id;
-	private Boolean active;
+//	private Boolean active;
+	private String active;
 	private List<resource> resource;
 	private List<basicDetails> basicDetails;
 	private List<Contact> contact;
@@ -22,13 +23,14 @@ public class Patient {
 	private List<Stats> stats;
 	private List<Insurance> insurance;
 	
-	public Boolean getActive() {
+	public String getActive() {
 		return active;
 	}
 
-	public void setActive(Boolean active) {
+	public void setActive(String active) {
 		this.active = active;
 	}
+	
 	public List<Insurance> getInsurance() {
 		return insurance;
 	}
@@ -104,11 +106,11 @@ public class Patient {
 
 	// ************ Constructor Method ************\\
 
-	public Patient(String id, Boolean active, List<resource> resource, List<basicDetails> basicDetails,
+	public Patient(String id, String active, List<resource> resource, List<basicDetails> basicDetails,
 			List<Contact> contact, List<Employer> employer, List<Guardian> guardian, List<Misc> misc,
 			List<Stats> stats, List<Insurance> insurance) {
 		this.id = id;
-		this.active = active;
+		this.setActive(active);
 		this.resource = resource;
 		this.basicDetails = basicDetails;
 		this.contact = contact;
@@ -119,7 +121,7 @@ public class Patient {
 		this.insurance = insurance;
 	}
 
-	public static Patient build(String id, Boolean active, List<resource> resource, List<basicDetails> basicDetails,
+	public static Patient build(String id, String active, List<resource> resource, List<basicDetails> basicDetails,
 			List<Contact> contact, List<Employer> employer, List<Guardian> guardian, List<Misc> misc,
 			List<Stats> stats, List<Insurance> insurance) {
 		return new Patient(id, active, resource, basicDetails, contact, employer, guardian, misc, stats, insurance);
@@ -135,5 +137,7 @@ public class Patient {
 		this.setStats(patientRequest.getStats());
 		this.setInsurance(patientRequest.getInsurance());
 	}
+
+	
 
 }
